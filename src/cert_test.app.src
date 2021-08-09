@@ -6,7 +6,9 @@
   {applications,
    [kernel,
     stdlib,
-    cowboy
+    inets,
+    cowboy,
+    gun
    ]},
   {env,[]},
   {modules, []},
