@@ -13,9 +13,11 @@ start(_StartType, _StartArgs) ->
          {port, 8080},
          {verify, verify_peer},
          {fail_if_no_peer_cert, true},
-         {cacertfile, "priv/ca.crt"},
-         {certfile, "priv/localhost.crt"},
-         {keyfile, "priv/localhost.key"}
+         {cacertfile, "priv/CA.crt"},
+         {certfile, "priv/server.crt"},
+         {keyfile, "priv/server.key"}
+         %{certfile, "priv/invalid_server.crt"},
+         %{keyfile, "priv/invalid_server.key"}
         ],
         #{env => #{dispatch => Dispatch}}
     ),

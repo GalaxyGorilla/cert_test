@@ -5,7 +5,8 @@
 request() ->
     {ok, ConnPid} = gun:open("localhost", 8080,
                              #{transport => tls,
-                               transport_opts => [{cacertfile, "priv/CA.crt"},
+                               transport_opts => [{verify, verify_peer},
+                                                  {cacertfile, "priv/CA.crt"},
                                                   {certfile, "priv/client.crt"},
                                                   {keyfile, "priv/client.key"}]}),
     {ok, _Protocol} = gun:await_up(ConnPid),
