@@ -5,8 +5,8 @@ An OTP application for tinkering with TLS certificates using cowboy and gun.
 
 There are two listeners used:
 
-* Basic TLS, e.g. only server certificates are verified by the client
-* Client authenticated TLS, e.g. also client certificates are verified by the server
+* Basic TLS, e.g. only server certificates are verified by the client (port 8080)
+* Client authenticated TLS, e.g. also client certificates are verified by the server (port 8081)
 
 Start
 -----
