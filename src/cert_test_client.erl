@@ -3,7 +3,11 @@
 -export([request/0]).
 
 request() ->
-    {ok, ConnPid} = gun:open("localhost", 8080),
+    {ok, ConnPid} = gun:open("localhost", 8080,
+                             #{transport => tls,
+                               transport_opts => [{cacertfile, "priv/CA.crt"},
+                                                  {certfile, "priv/client.crt"},
+                                                  {keyfile, "priv/client.key"}]}),
     {ok, _Protocol} = gun:await_up(ConnPid),
     StreamRef = gun:get(ConnPid, "/"),
     case gun:await(ConnPid, StreamRef) of
