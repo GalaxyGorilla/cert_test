@@ -8,7 +8,10 @@ request() ->
                                transport_opts => [{verify, verify_peer},
                                                   {cacertfile, "priv/CA.crt"},
                                                   {certfile, "priv/client.crt"},
-                                                  {keyfile, "priv/client.key"}]}),
+                                                  {keyfile, "priv/client.key"}
+                                                  %{certfile, "priv/invalid_client.crt"},
+                                                  %{keyfile, "priv/invalid_client.key"}
+                                                 ]}),
     {ok, _Protocol} = gun:await_up(ConnPid),
     StreamRef = gun:get(ConnPid, "/"),
     case gun:await(ConnPid, StreamRef) of
