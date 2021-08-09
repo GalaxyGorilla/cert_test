@@ -3,6 +3,11 @@ cert_test
 
 An OTP application for tinkering with TLS certificates using cowboy and gun.
 
+There are two listeners used:
+
+* Basic TLS, e.g. only server certificates are verified by the client
+* Client authenticated TLS, e.g. also client certificates are verified by the server
+
 Start
 -----
 
@@ -10,8 +15,11 @@ Start
 
     [...]
 
-    1> cert_test_client:request().
-    {ok,<<"huhu!">>} 
+    1> cert_test_client:req_basic_tls().
+    {ok,<<"huhu!">>}
+
+    2> cert_test_client:req_client_auth_tls().
+    {ok,<<"huhu!">>}
 
 
 Certificates
