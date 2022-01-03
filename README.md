@@ -28,6 +28,8 @@ Certificates
 The `priv` folder contains all used certificates and associated private keys. Note that there are also
 invalid certificates for the client and server for tinkering.
 
+For the sake of documentation here's described how the content in `priv` was generated.
+
 Generate private keys:
 
     % openssl ecparam -genkey -name prime256v1 -noout -out example.key
