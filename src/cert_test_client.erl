@@ -16,8 +16,14 @@ req_client_auth_tls() ->
     TransportOpts = [
                      {verify, verify_peer},
                      {cacertfile, "priv/CA.crt"},
+                     %{cacertfile, "priv/CA_ICA_SCA_batch.crt"},
+
                      {certfile, "priv/client.crt"},
                      {keyfile, "priv/client.key"}
+
+                     %{certfile, "priv/ICA_client.crt"},
+                     %{keyfile, "priv/ICA_client.key"}
+                     
                      %{certfile, "priv/invalid_client.crt"},
                      %{keyfile, "priv/invalid_client.key"}
                     ],

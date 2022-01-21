@@ -60,3 +60,22 @@ The `invalid_client.crt` is self-signed and is therefore not accepted by the ser
 You can also verify your signed certificates with the CA certificate:
 
     $ openssl verify -verbose -CAfile CA.crt example.crt
+
+
+Special case: intermediate CA, the real fun. Don't generate certificates as described here for production.
+
+Put that into your shell:
+
+    CONFIG="
+    [req]
+    distinguished_name=dn
+    [ dn ]
+    [ ext ]
+    basicConstraints=CA:TRUE,pathlen:0
+    "
+
+Then sign the CSR using the following command:
+
+    $ openssl x509 -req -extfile <(echo "$CONFIG") -in ICA.csr -CA CA.crt -CAkey CA.key -CAcreateserial -days 3650 -sha256 -extensions ext -out ICA.crt
+
+This adds the `basicConstraints` extension to the certificate to make it CA capable.

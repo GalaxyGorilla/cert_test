@@ -10,8 +10,13 @@ start(_StartType, _StartArgs) ->
     ]),
     CertOpts = [
                 {cacertfile, "priv/CA.crt"},
+
                 {certfile, "priv/server.crt"},
                 {keyfile, "priv/server.key"}
+
+                %{certfile, "priv/SCA_server.crt"},
+                %{keyfile, "priv/SCA_server.key"}
+
                 %{certfile, "priv/invalid_server.crt"},
                 %{keyfile, "priv/invalid_server.key"}
                ],
